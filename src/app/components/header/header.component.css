@@ -1,7 +1,50 @@
 .links_letters {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+#collapsibleNavbar {
+    margin-right: 6%;
+}
+
+ul li a {
+    white-space: nowrap;
+}
+
+
+ul li {
+    margin-right: 3%;
+}
+
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+    /* Transiciones para el ancho y la posición */
+    transform-origin: right;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    /* Se expandirá hasta el 100% del ancho del enlace */
+    left: 0;
+    /* Alineará a la izquierda */
+}
+
+.active::after {
+    width: 100%;
+    left: 0;
 }

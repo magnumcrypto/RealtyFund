@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-sm bg-black navbar-dark class-black">
+<nav class="navbar navbar-expand-md bg-black navbar-dark class-black">
     <div class="container-fluid ms-5">
         <a class="navbar-brand" href="index.html">
-            <img src="../../../assets/img/logo_nombre.png" alt="Avatar Logo" style="width:170px;" class="rounded-0">
+            <img src="../../../assets/img/logo_nombre.png" alt="Avatar Logo" style="width:170px; height: 115px;"
+                class="rounded-0">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -9,19 +10,24 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link links_letters" href="#">Inicio</a>
+                    <a (click)="activeStyle(1)" [ngClass]="{'active': styleOne}" class="nav-link links_letters"
+                        routerLink="/index" routerLinkActive="active">INICIO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_letters" href="#">Ventas</a>
+                    <a (click)="activeStyle(2)" [ngClass]="{'active': styleTwo}" class="nav-link links_letters"
+                        href="#">VENTAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_letters" href="#">Alquiler</a>
+                    <a (click)="activeStyle(3)" [ngClass]="{'active': styleThree}" class="nav-link links_letters"
+                        href="#">ALQUILER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_letters" href="#">Casos de éxito</a>
+                    <a (click)="activeStyle(4)" [ngClass]="{'active': styleFour}" class="nav-link links_letters"
+                        href="#">CASOS DE ÉXITO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link links_letters" href="#">Contactanos</a>
+                    <a (click)="activeStyle(5)" [ngClass]="{'active': styleFive}" class="nav-link links_letters"
+                        href="#">CONTÁCTANOS</a>
                 </li>
             </ul>
         </div>
