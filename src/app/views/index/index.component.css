@@ -40,33 +40,6 @@ strong {
     padding-bottom: 3%;
 }
 
-/* .effect {
-    text-align: center;
-    position: relative;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    font-size: 3.5em;
-    letter-spacing: 4px;
-    overflow: hidden;
-    background: linear-gradient(90deg, #000, #000, #000);
-    background-repeat: no-repeat;
-    background-size: 80%;
-    animation: animate 6s linear;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0);
-}
-
-@keyframes animate {
-    0% {
-        background-position: -500%;
-    }
-
-    100% {
-        background-position: 500%;
-    }
-} */
-
 .container_img {
     padding-top: 5%;
     padding-bottom: 7%;
@@ -114,7 +87,7 @@ li strong {
     /* Fija la imagen de fondo */
     position: relative;
     overflow: hidden;
-    height: 400px;
+    min-height: 400px;
 }
 
 .overcontainer {
@@ -126,4 +99,60 @@ li strong {
     width: 100%;
     height: 100%;
     z-index: 1;
+}
+
+.col-md-3 p {
+    text-align: -webkit-center;
+    margin-bottom: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 200;
+    color: white;
+    padding: 0%;
+}
+
+.first_p {
+    font-size: 44px !important;
+    font-weight: 100 !important;
+}
+
+.col-md-3 {
+    margin-bottom: 4%;
+}
+
+.col-md-3 img {
+    width: 50px;
+    height: 50px;
+}
+
+.container_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Establece la altura mínima del contenedor al 100% del alto de la ventana */
+}
+
+.row.overcontainer {
+    flex-grow: 1;
+    /* Hace que la fila ocupe todo el espacio disponible verticalmente */
+}
+
+@media (min-width: 576px) {
+    .container_info {
+        min-height: 50vh;
+        /* Para pantallas más grandes, establece la altura mínima al 50% del alto de la ventana */
+    }
+}
+
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    line-height: inherit;
+    margin-bottom: 6%;
+    border-bottom: 1px solid rgb(20, 161, 240);
 }

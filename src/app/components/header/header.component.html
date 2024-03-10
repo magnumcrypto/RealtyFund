@@ -15,21 +15,22 @@
                 </li>
                 <li class="nav-item">
                     <a (click)="activeStyle(2)" [ngClass]="{'active': styleTwo}" class="nav-link links_letters"
-                        href="#">VENTAS</a>
+                        routerLink="/sales" routerLinkActive="active">VENTAS</a>
                 </li>
                 <li class="nav-item">
                     <a (click)="activeStyle(3)" [ngClass]="{'active': styleThree}" class="nav-link links_letters"
-                        href="#">ALQUILER</a>
+                        routerLink="/rents" routerLinkActive="active">ALQUILER</a>
                 </li>
                 <li class="nav-item">
                     <a (click)="activeStyle(4)" [ngClass]="{'active': styleFour}" class="nav-link links_letters"
-                        href="#">CASOS DE ÉXITO</a>
+                        routerLink="/exits" routerLinkActive="active">CASOS DE ÉXITO</a>
                 </li>
                 <li class="nav-item">
                     <a (click)="activeStyle(5)" [ngClass]="{'active': styleFive}" class="nav-link links_letters"
-                        href="#">CONTÁCTANOS</a>
+                        routerLink="/contact" routerLinkActive="active">CONTÁCTANOS</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="background-blur"></div>
