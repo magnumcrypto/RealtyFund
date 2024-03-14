@@ -19,29 +19,33 @@ ul li {
     margin-right: 3%;
 }
 
-.nav-link {
-    position: relative;
-    overflow: hidden;
+/* <reset-style> ============================ */
+a {
+    text-decoration: none;
 }
 
-.nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
+/* <main-style> ============================ */
+.links_letters {
+    color: #fff;
+    line-height: 2;
+    position: relative;
+}
+
+.links_letters::before {
+    content: '';
     width: 0;
     height: 2px;
+    border-radius: 2px;
     background-color: #fff;
-    transition: width 0.3s ease, left 0.3s ease;
-    /* Transiciones para el ancho y la posición */
-    transform-origin: right;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
 }
 
-.nav-link:hover::after {
+.links_letters:hover::before {
     width: 100%;
-    /* Se expandirá hasta el 100% del ancho del enlace */
     left: 0;
-    /* Alineará a la izquierda */
 }
 
 .active::after {
