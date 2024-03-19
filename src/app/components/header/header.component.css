@@ -19,34 +19,31 @@ ul li {
     margin-right: 3%;
 }
 
-/* <reset-style> ============================ */
-a {
-    text-decoration: none;
-}
-
-/* <main-style> ============================ */
-.links_letters {
-    color: #fff;
-    line-height: 2;
+.nav-link {
     position: relative;
+    overflow: hidden;
 }
 
-.links_letters::before {
-    content: '';
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 0;
     height: 2px;
-    border-radius: 2px;
     background-color: #fff;
-    position: absolute;
-    bottom: -.25rem;
-    right: 0;
-    transition: right .4s, width .4s, left .4s;
+    transition: width 0.3s ease, left 0.3s ease;
+    /* Transiciones para el ancho y la posición */
+    transform-origin: right;
 }
 
-.links_letters:hover::before {
+.nav-link:hover::after {
     width: 100%;
+    /* Se expandirá hasta el 100% del ancho del enlace */
     left: 0;
+    /* Alineará a la izquierda */
 }
+
 
 .active::after {
     width: 100%;
