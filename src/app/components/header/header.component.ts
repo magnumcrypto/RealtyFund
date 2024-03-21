@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  public styleOne: boolean = true;
+  public styleOne: boolean = false;
   public styleTwo: boolean = false;
   public styleThree: boolean = false;
   public styleFour: boolean = false;

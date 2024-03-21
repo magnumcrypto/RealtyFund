@@ -9,4 +9,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() cardImage: string = '';
+  @Input() tipoInmueble: string = '';
+  @Input() descripcion: string = '';
+  @Input() precio: string = '';
+  @Input() direccion: string = '';
+  @Input() disponibilidad: string = '';
 }

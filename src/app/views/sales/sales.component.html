@@ -1,16 +1,11 @@
 <div class="container-fluid px-5 py-5">
     <div class="row gx-5 gy-5">
+        @for (property of propertyData; track property) {
         <div class="col-md-4">
-            <!-- FIRST CARD -->
-            <app-card [cardImage]="cardImage1"></app-card>
+            <app-card [cardImage]="'../../../assets/house_img/'+property.imagen" [precio]="property.precio.toString()"
+                [disponibilidad]="property.disponibilidad ? 'SI' : 'NO'" [direccion]="property.direccion"
+                [tipoInmueble]="property.tipo_inmueble" [descripcion]="property.descripcion"></app-card>
         </div>
-        <div class="col-md-4">
-            <!-- SECOND CARD -->
-            <app-card [cardImage]="cardImage2"></app-card>
-        </div>
-        <div class="col-md-4">
-            <!-- THIRD CARD -->
-            <app-card [cardImage]="cardImage3"></app-card>
-        </div>
+        }
     </div>
 </div>
