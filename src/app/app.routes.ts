@@ -9,7 +9,7 @@ export const routes: Routes =
     [
         { path: '', redirectTo: 'index', pathMatch: 'full' },
         { path: 'index', component: IndexComponent },
-        { path: 'sales', component: SalesComponent },
+        { path: 'sales', loadComponent: () => import('./views/sales/sales.component').then(mod => mod.SalesComponent) },
         { path: 'rents', component: RentsComponent },
         { path: 'exits', component: ExitsComponent },
         { path: 'contact', component: ContactComponent }

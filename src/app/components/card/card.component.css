@@ -1,9 +1,11 @@
-img {
-    height: 330px !important;
+.card {
+    aspect-ratio: 0.8;
+    transition: .3s;
 }
 
-.card {
-    transition: .3s;
+img {
+    aspect-ratio: 1.5;
+    height: 330px !important;
 }
 
 .card:hover {
