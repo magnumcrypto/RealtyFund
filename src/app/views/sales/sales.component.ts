@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
 import { SalesService } from '../../services/sales.service';
 import { Property } from '../../interfaces/saleproperty';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-sales',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, ModalComponent],
   templateUrl: './sales.component.html',
   styleUrl: './sales.component.css'
 })
 export class SalesComponent implements OnInit {
   public propertyData: Property[] = [];
+  public selectedImageValue: string = '';
+  public selectedDetailedInfoValue: string = '';
 
   public constructor(public salesService: SalesService) { }
 

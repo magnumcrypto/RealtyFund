@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CardComponent } from '../../components/card/card.component';
+import { Property } from '../../interfaces/rentproperty';
+import { RentsService } from '../../services/rents.service';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-rents',
   standalone: true,
-  imports: [],
+  imports: [CardComponent, ModalComponent],
   templateUrl: './rents.component.html',
   styleUrl: './rents.component.css'
 })
-export class RentsComponent {
+export class RentsComponent implements OnInit {
+  public propertyData: Property[] = [];
+  public selctedProperty: any;
+  public selectedImageValue: string = '';
+  public selectedDetailedInfoValue: string = '';
 
+  public constructor(public rentsService: RentsService) { }
+
+  public getResponse(uri: string) {
+    this.rentsService.getRents(uri).subscribe(response => {
+      this.propertyData = Object.values(response).map((item: any) => item.data);
+    })
+  }
+  ngOnInit(): void {
+    const uri: string = 'http://127.0.0.1:8000/rents';
+    this.getResponse(uri);
+  }
+
+  ngOnDestroy(): void {
+    console.log("se destruyo rents");
+  }
 }

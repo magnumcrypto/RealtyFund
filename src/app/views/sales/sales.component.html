@@ -2,10 +2,14 @@
     <div class="row gx-5 gy-5">
         @for (property of propertyData; track property) {
         <div class="col-md-4">
-            <app-card [cardImage]="'../../../assets/house_img/'+property.imagen" [precio]="property.precio.toString()"
+            <app-card
+                (showModal)="selectedImageValue=$event.image; selectedDetailedInfoValue=$event.detailedInformation"
+                [cardImage]="'../../../assets/house_img/'+property.imagen" [precio]="property.precio.toString()"
                 [disponibilidad]="property.disponibilidad ? 'SI' : 'NO'" [direccion]="property.direccion"
-                [tipoInmueble]="property.tipo_inmueble" [descripcion]="property.descripcion"></app-card>
+                [tipoInmueble]="property.tipo_inmueble" [descripcion]="property.descripcion"
+                [detailedInfo]="property.informacion_detallada" [isDisponible]="property.disponibilidad"></app-card>
         </div>
         }
     </div>
 </div>
+<app-modal [image]="selectedImageValue" [detailedInformation]="selectedDetailedInfoValue"></app-modal>

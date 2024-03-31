@@ -121,3 +121,13 @@ button:hover .button-text {
 button:active .button-text {
     color: rgba(255, 255, 255, 0.459);
 }
+
+.disponibilidad {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(162deg, rgba(255, 255, 255, 1) 22%, rgba(26, 121, 9, 1) 100%);
+}
+
+.no-disponibilidad {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(162deg, rgba(255, 255, 255, 1) 22%, rgba(218, 1, 1, 1) 100%);
+}
