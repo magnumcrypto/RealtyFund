@@ -9,9 +9,9 @@
         <p class="card-text">{{descripcion}}</p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{direccion}}</li>
-        <li class="list-group-item">{{precio}}</li>
+        <li class="list-group-item">Direccion: &nbsp;{{direccion}}</li>
+        <li class="list-group-item">Precio de compra: &nbsp;{{precio | currency:'USD':'symbol':'1.2-2'}}</li>
         <li [ngClass]="{'disponibilidad': isDisponible, 'no-disponibilidad': !isDisponible}" class="list-group-item">
-            {{disponibilidad}}</li>
+            Disponible: &nbsp;{{disponibilidad}}</li>
     </ul>
 </div>

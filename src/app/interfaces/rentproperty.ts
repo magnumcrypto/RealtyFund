@@ -13,4 +13,6 @@ export interface Property {
     zona: string;
     disponibilidad: boolean;
     imagen: string;
+    capital_aportado: number;
+    porcentaje_invertido: number;
 }

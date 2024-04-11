@@ -13,9 +13,14 @@ import { ModalComponent } from '../../components/modal/modal.component';
 })
 export class RentsComponent implements OnInit {
   public propertyData: Property[] = [];
-  public selctedProperty: any;
+
+  public titleProperty: string = '';
   public selectedImageValue: string = '';
   public selectedDetailedInfoValue: string = '';
+  public zonaValue: string = '';
+  public direccionValue: string = '';
+  public precioValue: number = 0;
+  public descripcionValue: string = '';
 
   public constructor(public rentsService: RentsService) { }
 

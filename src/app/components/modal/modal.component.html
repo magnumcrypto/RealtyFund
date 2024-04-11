@@ -3,26 +3,46 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h3>
+                <h1 class="modal-title" id="exampleModalLabel">{{propertyTitle.toUpperCase()}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="clearfix">
                     <img src={{image}} class="float-md-top mb-3 imf-fluid" alt="...">
-                    <p>
-                        {{detailedInformation}}
-                    </p>
-                    <p>
-                        As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this
-                        would look with some actual content in here, rather than just this boring placeholder text that
-                        goes on and on, but actually conveys no tangible information at. It simply takes up space and
-                        should not really be read.
-                    </p>
-                    <p>
-                        And yet, here you are, still persevering in reading this placeholder text, hoping for some more
-                        insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of
-                        that here.
-                    </p>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <div class="mt-1 mx-auto">
+                                <h2>Detalles</h2>
+                                <ul class="list-group">
+                                    <li><strong>Zona &nbsp;</strong>{{zona}}</li>
+                                    <li><strong>Precio &nbsp;</strong>{{precio | currency:'USD':'symbol':'1.2-2'}}</li>
+                                    <li><strong>Dirección &nbsp;</strong>{{direccion}}</li>
+                                    <li><strong>Descripción &nbsp;</strong>{{descripcion}}</li>
+                                    <li><strong>Información detallada &nbsp;</strong>{{detailedInformation}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <div class="mt-1 mx-auto w-100">
+                                <h2>Estadísticas</h2>
+                                <div class="progress" role="progressbar" aria-label="Max progress bar" aria-valuenow="0"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 100%">{{precio |
+                                        currency:'USD':'symbol':'1.2-2'}}</div>
+                                </div>
+                                <div class="progress" role="progressbar" aria-label="" aria-valuenow="0"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped" style="width: 70%"></div>
+                                </div>
+                                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
