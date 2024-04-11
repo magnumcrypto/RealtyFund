@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule, DecimalPipe } from '@angular/common';
+import { CommonModule, DecimalPipe, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [CommonModule, DecimalPipe],
+  imports: [CommonModule, DecimalPipe, NgStyle],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css'
 })
@@ -16,4 +16,8 @@ export class ModalComponent {
   @Input() precio: number = 0;
   @Input() zona: string = '';
   @Input() descripcion: string = '';
+  @Input() capitalAportado: number = 0;
+  @Input() porcentajeInvertido: number = 0;
+
+  public precioObjetivo: number = this.capitalAportado * 1.15;
 }

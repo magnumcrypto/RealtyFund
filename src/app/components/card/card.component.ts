@@ -19,6 +19,8 @@ export class CardComponent {
   @Input() detailedInfo: string = '';
   @Input() isDisponible: boolean = true;
   @Input() zona: string = '';
+  @Input() capitalAportado: number = 0;
+  @Input() porcentajeInvertido: number = 0;
 
 
   @Output() showModal = new EventEmitter<{
@@ -28,7 +30,9 @@ export class CardComponent {
     descripcion: string,
     precio: number,
     direccion: string,
-    zona: string
+    zona: string,
+    capitalAportado: number,
+    porcentajeInvertido: number
   }>();
 
   public onButtonClick() {
@@ -39,7 +43,9 @@ export class CardComponent {
       descripcion: this.descripcion,
       precio: this.precio,
       direccion: this.direccion,
-      zona: this.zona
+      zona: this.zona,
+      capitalAportado: this.capitalAportado,
+      porcentajeInvertido: this.porcentajeInvertido
     });
   }
 }

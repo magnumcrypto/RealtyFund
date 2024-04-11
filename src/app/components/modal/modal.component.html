@@ -15,7 +15,6 @@
                                 <h2>Detalles</h2>
                                 <ul class="list-group">
                                     <li><strong>Zona &nbsp;</strong>{{zona}}</li>
-                                    <li><strong>Precio &nbsp;</strong>{{precio | currency:'USD':'symbol':'1.2-2'}}</li>
                                     <li><strong>Dirección &nbsp;</strong>{{direccion}}</li>
                                     <li><strong>Descripción &nbsp;</strong>{{descripcion}}</li>
                                     <li><strong>Información detallada &nbsp;</strong>{{detailedInformation}}</li>
@@ -27,18 +26,36 @@
                         <div class="col d-flex justify-content-center">
                             <div class="mt-1 mx-auto w-100">
                                 <h2>Estadísticas</h2>
-                                <div class="progress" role="progressbar" aria-label="Max progress bar" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar" style="width: 100%">{{precio |
-                                        currency:'USD':'symbol':'1.2-2'}}</div>
+                                <span class="progress-label">Precio de compra: {{precio |
+                                    currency:'USD':'symbol':'1.2-2'}}</span>
+                                <div class="progress" role="progressbar" aria-label="Max progress bar"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar" style="width: 100%">100%</div>
                                 </div>
+                                <span class="progress-label">Capital invertido: {{capitalAportado |
+                                    currency:'USD':'symbol':'1.2-2'}}</span>
                                 <div class="progress" role="progressbar" aria-label="" aria-valuenow="0"
                                     aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-striped" style="width: 70%"></div>
+                                    <div class="progress-bar progress-bar"
+                                        [ngStyle]="{'width': porcentajeInvertido + '%'}">{{porcentajeInvertido}}%
+                                    </div>
                                 </div>
-                                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar" style="width: 100%"></div>
+                                <div class="row">
+                                    <span class="progress-label">Precio de venta objetivo: {{precio * 1.15 |
+                                        currency:'USD':'symbol':'1.2-2'}}</span>
+                                </div>
+                                <div class="row">
+                                    <span class="progress-label">Rentabilidad esperada (aprox.): 15%</span>
+                                </div>
+                                <div class="progress-stacked">
+                                    <div class="progress" role="progressbar" aria-label="Segment one"
+                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <div class="progress-bar">100%</div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="15"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                        <div class="progress-bar bg-success">15%</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

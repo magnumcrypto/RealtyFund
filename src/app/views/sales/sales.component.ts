@@ -21,6 +21,8 @@ export class SalesComponent implements OnInit {
   public direccionValue: string = '';
   public precioValue: number = 0;
   public descripcionValue: string = '';
+  public capitalAportadoValue: number = 0;
+  public porcentajeInvertidoValue: number = 0;
 
   public constructor(public salesService: SalesService) { }
 
