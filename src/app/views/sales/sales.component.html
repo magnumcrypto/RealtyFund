@@ -1,5 +1,8 @@
 <div class="container-fluid px-5 py-5">
-    <div class="row gx-5 gy-5">
+    <div class="container-xl">
+        <app-toolbar (responseData)="handleResponseData($event)" [uri]="uriSales"></app-toolbar>
+    </div>
+    <div class="row gx-5 gy-5 mt-5">
         @for (property of propertyData; track property) {
         <div class="col-md-4">
             <app-card

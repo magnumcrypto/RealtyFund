@@ -3,17 +3,18 @@ import { CardComponent } from '../../components/card/card.component';
 import { SalesService } from '../../services/sales.service';
 import { Property } from '../../interfaces/saleproperty';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-sales',
   standalone: true,
-  imports: [CardComponent, ModalComponent],
+  imports: [CardComponent, ModalComponent, ToolbarComponent],
   templateUrl: './sales.component.html',
   styleUrl: './sales.component.css'
 })
 export class SalesComponent implements OnInit {
   public propertyData: Property[] = [];
-
+  public uriSales = 'http://127.0.0.1:8000/sales';
   public titleProperty: string = '';
   public selectedImageValue: string = '';
   public selectedDetailedInfoValue: string = '';
@@ -39,6 +40,10 @@ export class SalesComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    console.log("se destruyo sales");
+  }
+
+  public handleResponseData(responseData: any) {
+    this.propertyData = Object.values(responseData).map((item: any) => item.data);
+    console.log(this.propertyData);
   }
 }

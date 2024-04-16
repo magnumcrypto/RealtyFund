@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit(uri)" [formGroup]="reactiveForm" class="mb-5">
+    <div class="row row-cols-1 row-cols-md-4">
+        <div class="col mb-3">
+            <select formControlName="orden_alfabetico" id="alfabetico"
+                class="form-select focus-ring focus-ring-dark text-decoration-none border rounded-2"
+                aria-label="Default select example">
+                <option value="" selected hidden>Ordenar alfabeticamente</option>
+                <option value="ASC">Ascendente (A-Z)</option>
+                <option value="DESC">Descendente (Z-A)</option>
+            </select>
+        </div>
+        <div class="col mb-3">
+            <select formControlName="disponibilidad" id="disponibilidad"
+                class="form-select focus-ring focus-ring-dark text-decoration-none border rounded-2"
+                aria-label="Default select example">
+                <option value="" selected hidden>Ordenar por disponibilidad</option>
+                <option value="1">Disponible</option>
+                <option value="0">No disponible</option>
+            </select>
+        </div>
+        <div class="col mb-3">
+            <select formControlName="precio" id="precio"
+                class="form-select focus-ring focus-ring-dark text-decoration-none border rounded-2"
+                aria-label="Default select example">
+                <option value="" selected hidden>Ordenar por precio</option>
+                <option value="ASC">Más Alto a más Bajo</option>
+                <option value="DESC">Más Bajo a más Alto</option>
+            </select>
+        </div>
+        <div class="col mb-3 d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark">Filtrar</button>
+        </div>
+    </div>
+</form>

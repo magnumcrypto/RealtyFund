@@ -3,17 +3,18 @@ import { CardComponent } from '../../components/card/card.component';
 import { Property } from '../../interfaces/rentproperty';
 import { RentsService } from '../../services/rents.service';
 import { ModalComponent } from '../../components/modal/modal.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-rents',
   standalone: true,
-  imports: [CardComponent, ModalComponent],
+  imports: [CardComponent, ModalComponent, ToolbarComponent],
   templateUrl: './rents.component.html',
   styleUrl: './rents.component.css'
 })
 export class RentsComponent implements OnInit {
   public propertyData: Property[] = [];
-
+  public uriRents = 'http://127.0.0.1:8000/rents';
   public titleProperty: string = '';
   public selectedImageValue: string = '';
   public selectedDetailedInfoValue: string = '';
@@ -35,6 +36,10 @@ export class RentsComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    console.log("se destruyo rents");
+  }
+
+  public handleResponseData(responseData: any) {
+    this.propertyData = Object.values(responseData).map((item: any) => item.data);
+    console.log(this.propertyData);
   }
 }

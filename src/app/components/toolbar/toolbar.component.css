@@ -1,0 +1,8 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.form-select option:hover {
+    background-color: grey !important;
+    color: white !important;
+}

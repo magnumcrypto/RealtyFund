@@ -1,4 +1,3 @@
-// Interface for the rentproperty
 export interface Rentproperty {
     property: Property[];
 }
