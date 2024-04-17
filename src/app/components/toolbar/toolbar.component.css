@@ -6,3 +6,7 @@
     background-color: grey !important;
     color: white !important;
 }
+
+button {
+    width: 133px;
+}

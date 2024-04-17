@@ -23,12 +23,13 @@
                 class="form-select focus-ring focus-ring-dark text-decoration-none border rounded-2"
                 aria-label="Default select example">
                 <option value="" selected hidden>Ordenar por precio</option>
-                <option value="ASC">Más Alto a más Bajo</option>
-                <option value="DESC">Más Bajo a más Alto</option>
+                <option value="ASC">Más Bajo a más Alto</option>
+                <option value="DESC">Más Alto a más Bajo</option>
             </select>
         </div>
-        <div class="col mb-3 d-flex justify-content-center">
+        <div class="col mb-3 d-flex justify-content-center" style="gap: 8%;">
             <button type="submit" class="btn btn-dark">Filtrar</button>
+            <button type="button" class="btn btn-outline-dark" (click)="removeFilters()">Limpiar Filtros</button>
         </div>
     </div>
 </form>

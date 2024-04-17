@@ -15,6 +15,7 @@ export class ToolbarComponent {
 
 
   constructor(public postService: PostService) { }
+
   reactiveForm = new FormGroup({
     orden_alfabetico: new FormControl('', { nonNullable: true }),
     disponibilidad: new FormControl('', { nonNullable: true }),
@@ -23,21 +24,28 @@ export class ToolbarComponent {
 
   public onSubmit(uri: string) {
     const formValue = this.reactiveForm.getRawValue();
-    const filters = {
+    const filters = JSON.stringify({
       disponibilidad: formValue.disponibilidad || null,
       orden_alfabetico: formValue.orden_alfabetico || null,
       precio: formValue.precio || null
-    };
+    });
 
-    this.postService.sendFilters(uri, filters).subscribe(
-      (response) => {
-        console.log(response)
+    this.postService.sendFilters(uri, filters).subscribe({
+      next: (response) => {
+        console.log(response);
         this.responseData.emit(response);
       },
-      (error) => {
-        console.log('Error:')
-        console.log(error);
+      error: (error) => {
+        console.error('Error:', error);
       }
-    );
+    });
+  }
+  public removeFilters() {
+    this.reactiveForm.reset({
+      orden_alfabetico: '',
+      disponibilidad: '',
+      precio: ''
+    });
+    this.onSubmit(this.uri);
   }
 }
