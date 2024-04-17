@@ -12,7 +12,6 @@ import { MinicardComponent } from '../../components/minicard/minicard.component'
 })
 export class ExitsComponent implements OnInit {
   public exitsData: ExitsData[] = [];
-  public reaction: boolean = false;
   public constructor(public exitsService: ExitsService) { }
 
   public getResponse(uri: string) {
@@ -28,8 +27,4 @@ export class ExitsComponent implements OnInit {
   ngOnDestroy(): void {
   }
 
-  changeReaction(reaction: boolean) {
-    reaction = !reaction;
-    console.log(reaction);
-  }
 }

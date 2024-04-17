@@ -6,8 +6,9 @@
         @for (property of propertyData; track property) {
         <div class="col-md-4">
             <app-card
-                (showModal)="selectedImageValue=$event.image; selectedDetailedInfoValue=$event.detailedInformation; titleProperty=$event.title; zonaValue=$event.zona; precioValue=$event.precio; direccionValue=$event.direccion; descripcionValue=$event.descripcion;"
-                [cardImage]="'../../../assets/house_rent_img/'+property.imagen" [precio]="property.precio"
+                (showModal)="porcentajeInvertidoValue=$event.porcentajeInvertido; capitalAportadoValue=$event.capitalAportado; selectedImageValue=$event.image; selectedDetailedInfoValue=$event.detailedInformation; titleProperty=$event.title; zonaValue=$event.zona; precioValue=$event.precio; direccionValue=$event.direccion; descripcionValue=$event.descripcion;"
+                [porcentajeInvertido]="property.porcentaje_invertido" [capitalAportado]="property.capital_aportado"
+                [cardImage]="'../../../assets/house_img/'+property.imagen" [precio]="property.precio"
                 [disponibilidad]="property.disponibilidad ? 'SI' : 'NO'" [direccion]="property.direccion"
                 [tipoInmueble]="property.tipo_inmueble" [descripcion]="property.descripcion"
                 [detailedInfo]="property.informacion_detallada" [isDisponible]="property.disponibilidad"
@@ -16,6 +17,6 @@
         }
     </div>
 </div>
-<app-modal [propertyTitle]="titleProperty" [image]="selectedImageValue"
-    [detailedInformation]="selectedDetailedInfoValue" [zona]="zonaValue" [direccion]="direccionValue"
-    [precio]="precioValue" [descripcion]="descripcionValue"></app-modal>
+<app-modal [capitalAportado]="capitalAportadoValue" [porcentajeInvertido]="porcentajeInvertidoValue"
+    [propertyTitle]="titleProperty" [image]="selectedImageValue" [detailedInformation]="selectedDetailedInfoValue"
+    [zona]="zonaValue" [direccion]="direccionValue" [precio]="precioValue" [descripcion]="descripcionValue"></app-modal>
