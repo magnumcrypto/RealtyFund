@@ -1,3 +1,5 @@
+<app-spinner [show]="loadding"></app-spinner>
+@if (!loadding) {
 <div class="container-fluid px-5 py-5">
     <div class="row gx-5 gy-5">
         @for (item of exitsData; track item) {
@@ -9,3 +11,4 @@
         }
     </div>
 </div>
+}

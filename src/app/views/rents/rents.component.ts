@@ -4,11 +4,12 @@ import { Property } from '../../interfaces/rentproperty';
 import { RentsService } from '../../services/rents.service';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import { SpinnerComponent } from '../../components/spinner/spinner.component';
 
 @Component({
   selector: 'app-rents',
   standalone: true,
-  imports: [CardComponent, ModalComponent, ToolbarComponent],
+  imports: [CardComponent, ModalComponent, ToolbarComponent, SpinnerComponent],
   templateUrl: './rents.component.html',
   styleUrl: './rents.component.css'
 })
@@ -24,12 +25,13 @@ export class RentsComponent implements OnInit {
   public descripcionValue: string = '';
   public capitalAportadoValue: number = 0;
   public porcentajeInvertidoValue: number = 0;
-
+  public loadding = true;
   public constructor(public rentsService: RentsService) { }
 
   public getResponse(uri: string) {
     this.rentsService.getRents(uri).subscribe(response => {
       this.propertyData = Object.values(response).map((item: any) => item.data);
+      this.loadding = false;
     })
   }
   ngOnInit(): void {
