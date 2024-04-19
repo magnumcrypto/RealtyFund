@@ -17,7 +17,6 @@
     position: relative;
     z-index: 1;
     min-height: 50%;
-    display: table;
     width: 100%;
     padding: 10px 0;
 }
@@ -239,6 +238,17 @@ h1 {
 }
 
 .capital:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.select {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.select:hover {
     background-color: #424242;
     border: none;
     border-radius: 0.5rem;
