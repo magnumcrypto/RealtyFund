@@ -12,4 +12,8 @@ export class PostService {
   public sendFilters(uri: string, filters: any): Observable<any> {
     return this.http.post(uri, filters);
   }
+
+  public insertInvestor(uri: string, userData: any): Observable<any> {
+    return this.http.post(uri, userData);
+  }
 }
