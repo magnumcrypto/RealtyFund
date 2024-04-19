@@ -1,0 +1,267 @@
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.fix {
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.not-fix {
+    position: relative;
+    z-index: 1;
+    min-height: 50%;
+    display: table;
+    width: 100%;
+    padding: 10px 0;
+}
+
+#f-1 {
+    position: relative;
+    z-index: 1;
+    /* Se mantiene la altura mínima */
+    display: table;
+    overflow: hidden;
+    /* Se oculta cualquier contenido que desborde */
+}
+
+#f-1 video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Coloca el video detrás del contenido */
+}
+
+#f-1 #f-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+
+#f-2 {
+    background-image: url(https://images.pexels.com/photos/2756435/pexels-photo-2756435.jpeg);
+}
+
+#f-3 {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/027/103/722/non_2x/silhouette-of-man-on-cliff-enjoying-sunset-view-in-mountains-during-summer-free-photo.jpg);
+}
+
+
+
+#nf-1 {
+    background: #222;
+    color: white;
+}
+
+#nf-2 {
+    background: #8f2400;
+    color: white;
+}
+
+#nf-3 {
+    background: #222;
+    color: white;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+}
+
+#content {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    width: 100%;
+    text-transform: uppercase;
+    height: 50%;
+    padding: 20px 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#content p {
+    font-size: 12px;
+    width: 50%;
+    margin: 0 auto;
+    letter-spacing: 0.25em;
+    line-height: 1.5em;
+}
+
+#content a {
+    text-decoration: none;
+    color: white;
+}
+
+#content a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    #f-1,
+    #f-2,
+    #f-3 {
+        min-height: 650px;
+    }
+}
+
+/* Media query para pantallas más grandes con una altura mínima de 800px */
+@media screen and (min-width: 1025px) {
+
+    #f-1,
+    #f-2,
+    #f-3 {
+        min-height: 800px;
+    }
+}
+
+/* Asegura que los elementos sean visibles en todas las pantallas */
+@media screen and (max-width: 767px) {
+
+    #f-1,
+    #f-2,
+    #f-3 {
+        height: 650px;
+    }
+}
+
+::selection {
+    background-color: gray;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 450px;
+    background-image: linear-gradient(to bottom, #424242, #212121);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+}
+
+.title {
+    color: wheat;
+    margin: 3rem 0;
+    font-size: 24px;
+}
+
+.input {
+    margin: 0.5rem 0;
+    padding: 1rem 0.5rem;
+    width: 20rem;
+    background-color: inherit;
+    color: rgb(232, 185, 98);
+    border: none;
+    outline: none;
+}
+
+.username {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.username:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.surname {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.surname:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.password {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.password:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.telefono {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.telefono:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.direccion {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.direccion:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.capital {
+    border-bottom: 1px solid rgb(232, 185, 98);
+    transition: all 400ms;
+}
+
+.capital:hover {
+    background-color: #424242;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.btn {
+    height: 3rem;
+    width: 20rem;
+    margin-top: 3rem;
+    background-color: rgb(232, 185, 98);
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 400ms;
+    box-shadow: 0 0 10px antiquewhite, 0 0 10px antiquewhite;
+}
+
+.btn:hover {
+    background-color: antiquewhite;
+    box-shadow: none;
+    color: black;
+}
+
+.container {
+    padding: 4% !important;
+}
