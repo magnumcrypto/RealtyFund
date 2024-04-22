@@ -3,16 +3,20 @@ import { SalesService } from '../../services/sales.service';
 import { Property } from '../../interfaces/saleproperty';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
 export class ContactComponent implements OnInit {
   public salesProperty: Property[] = [];
+  public isSucces: boolean = true;
+  public nonSuccess: boolean = true;
+  public textForNonSuccess: string = '';
 
   constructor(public salesService: SalesService, public postService: PostService) { }
 
@@ -64,17 +68,30 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    const formValue = this.reactiveForm.getRawValue();
-    console.log(formValue)
-    const userData = JSON.stringify(formValue);
-    const uri = 'http://127.0.0.1:8000/users';
-    this.postService.insertInvestor(uri, userData).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.log('Error:', error)
-      }
-    });
+    if (this.reactiveForm.valid) {
+      const formValue = this.reactiveForm.value;
+      console.log(formValue);
+      const userData = JSON.stringify(formValue);
+      const uri = 'http://127.0.0.1:8000/users';
+      this.postService.insertInvestor(uri, userData).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.isSucces = false;
+          this.nonSuccess = true;
+        },
+        error: (error) => {
+          console.log('Error:', error);
+          this.textForNonSuccess = 'Error en la inserción!';
+          this.nonSuccess = false;
+        }
+      });
+    } else {
+      this.textForNonSuccess = 'Datos incorrectos o sin rellenar'
+      this.nonSuccess = false;
+    }
+  }
+  ngOnDestroy() {
+    this.isSucces = true;
+    this.nonSuccess = true;
   }
 }
