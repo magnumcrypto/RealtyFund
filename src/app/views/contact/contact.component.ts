@@ -65,9 +65,10 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.reactiveForm.getRawValue();
+    console.log(formValue)
     const userData = JSON.stringify(formValue);
     const uri = 'http://127.0.0.1:8000/users';
-    this.postService.sendFilters(uri, userData).subscribe({
+    this.postService.insertInvestor(uri, userData).subscribe({
       next: (response) => {
         console.log(response);
       },

@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +9,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public styleOne: boolean = false;
   public styleTwo: boolean = false;
   public styleThree: boolean = false;
   public styleFour: boolean = false;
   public styleFive: boolean = false;
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    })
+  }
 
   public activeStyle(style: number): void {
     this.styleOne = false;
