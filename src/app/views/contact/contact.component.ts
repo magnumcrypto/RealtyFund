@@ -75,12 +75,12 @@ export class ContactComponent implements OnInit {
       const uri = 'http://127.0.0.1:8000/users';
       this.postService.insertInvestor(uri, userData).subscribe({
         next: (response) => {
-          console.log(response);
+          //console.log(response);
           this.isSucces = false;
           this.nonSuccess = true;
         },
         error: (error) => {
-          console.log('Error:', error);
+          //console.log('Error:', error);
           this.textForNonSuccess = 'Error en la inserción!';
           this.nonSuccess = false;
         }

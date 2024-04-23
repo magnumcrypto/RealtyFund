@@ -32,7 +32,7 @@ export class ToolbarComponent {
 
     this.postService.sendFilters(uri, filters).subscribe({
       next: (response) => {
-        console.log(response);
+        //console.log(response);
         this.responseData.emit(response);
       },
       error: (error) => {

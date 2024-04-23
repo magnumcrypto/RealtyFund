@@ -44,6 +44,6 @@ export class RentsComponent implements OnInit {
 
   public handleResponseData(responseData: any) {
     this.propertyData = Object.values(responseData).map((item: any) => item.data);
-    console.log(this.propertyData);
+    //console.log(this.propertyData);
   }
 }

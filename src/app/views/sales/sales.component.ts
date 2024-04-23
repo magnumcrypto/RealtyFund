@@ -31,7 +31,7 @@ export class SalesComponent implements OnInit {
 
   public getResponse(uri: string) {
     this.salesService.getSales(uri).subscribe(response => {
-      console.log("response");
+      //console.log("response");
       this.propertyData = Object.values(response).map((item: any) => item.data);
       this.loadding = false;
     })
@@ -47,6 +47,6 @@ export class SalesComponent implements OnInit {
 
   public handleResponseData(responseData: any) {
     this.propertyData = Object.values(responseData).map((item: any) => item.data);
-    console.log(this.propertyData);
+    //console.log(this.propertyData);
   }
 }
