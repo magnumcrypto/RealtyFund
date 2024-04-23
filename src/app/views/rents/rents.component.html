@@ -10,7 +10,7 @@
             <app-card
                 (showModal)="porcentajeInvertidoValue=$event.porcentajeInvertido; capitalAportadoValue=$event.capitalAportado; selectedImageValue=$event.image; selectedDetailedInfoValue=$event.detailedInformation; titleProperty=$event.title; zonaValue=$event.zona; precioValue=$event.precio; direccionValue=$event.direccion; descripcionValue=$event.descripcion;"
                 [porcentajeInvertido]="property.porcentaje_invertido" [capitalAportado]="property.capital_aportado"
-                [cardImage]="'../../../assets/house_img/'+property.imagen" [precio]="property.precio"
+                [cardImage]="'../../../assets/house_rent_img/'+property.imagen" [precio]="property.precio"
                 [disponibilidad]="property.disponibilidad ? 'SI' : 'NO'" [direccion]="property.direccion"
                 [tipoInmueble]="property.tipo_inmueble" [descripcion]="property.descripcion"
                 [detailedInfo]="property.informacion_detallada" [isDisponible]="property.disponibilidad"
