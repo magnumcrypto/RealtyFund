@@ -8,7 +8,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" (click)="closeNavbar($event)">
                 <li class="nav-item">
                     <a (click)="activeStyle(1)" [ngClass]="{'active': styleOne}" class="nav-link links_letters"
                         routerLink="/index" routerLinkActive="active">INICIO</a>
@@ -29,7 +29,7 @@
                     <a (click)="activeStyle(5)" [ngClass]="{'active': styleFive}" class="nav-link links_letters"
                         routerLink="/contact" routerLinkActive="active">CONTÁCTANOS</a>
                 </li>
-                <li>
+                <li class="last">
                     <button data-bs-toggle="modal" data-bs-target="#loginModal" (click)="onButtonClick()" class="Btn">
                         <div class="sign"><svg viewBox="0 0 512 512">
                                 <path

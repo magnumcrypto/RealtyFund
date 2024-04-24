@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { LoginformComponent } from '../loginform/loginform.component';
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() showModal = new EventEmitter();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -54,5 +54,12 @@ export class HeaderComponent implements OnInit {
 
   public onButtonClick() {
     this.showModal.emit();
+  }
+
+  closeNavbar(event: Event) {
+    const navbarCollapse = document.querySelector('.navbar-collapse.show');
+    if (navbarCollapse) {
+      this.renderer.removeClass(navbarCollapse, 'show');
+    }
   }
 }

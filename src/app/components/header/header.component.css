@@ -131,3 +131,12 @@ ul li {
     flex-grow: 0 !important;
     padding-right: 4%;
 }
+
+
+@media (max-width: 767.98px) {
+
+    /* Estilos que se aplicarán cuando la ventana tenga una anchura menor a 768px, es decir, cuando se pliegue el menú */
+    .last {
+        margin-top: 3%;
+    }
+}
