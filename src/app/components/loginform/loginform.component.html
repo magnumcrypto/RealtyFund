@@ -1,0 +1,81 @@
+<!--
+This was created based on the Dribble shot by Deepak Yadav that you can find at https://goo.gl/XRALsw
+I'm @hk95 on GitHub. Feel free to message me anytime.
+-->
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <!-- STAR FORM FROM HERE -->
+            <section class="user">
+                <div class="user_options-container">
+                    <div class="user_options-text">
+                        <div class="user_options-unregistered">
+                            <h2 class="user_unregistered-title">No tienes cuenta?</h2>
+                            <p class="user_unregistered-text">Registrate para poder ser de los primeros en enterarte de
+                                todas las novedades.</p>
+                            <div class="row"><button class="user_unregistered-signup" id="signup-button"
+                                    (click)="onSignUp()">Sign
+                                    up</button></div>
+                            <div class="row"><button class="user_unregistered-signup" id="signout"
+                                    data-bs-dismiss="modal">Cerrar</button></div>
+                        </div>
+                        <div class="user_options-registered">
+                            <h2 class="user_registered-title">Tienes una cuenta?</h2>
+                            <p class="user_registered-text">Inicia sesión y empieza a invertir.</p>
+                            <div class="row">
+                                <button class="user_registered-login" id="login-button"
+                                    (click)="onLogin()">Login</button>
+                            </div>
+                            <div class="row">
+                                <button class="user_unregistered-signup" id="signout2"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_options-forms" id="user_options-forms">
+                        <div class="user_forms-login">
+                            <h2 class="forms_title">Login</h2>
+                            <form class="forms_form">
+                                <fieldset class="forms_fieldset">
+                                    <div class="forms_field">
+                                        <input type="email" placeholder="Email" class="forms_field-input" required
+                                            autofocus />
+                                    </div>
+                                    <div class="forms_field">
+                                        <input type="password" placeholder="Password" class="forms_field-input"
+                                            required />
+                                    </div>
+                                </fieldset>
+                                <div class="forms_buttons">
+                                    <input type="submit" value="Log In" class="forms_buttons-action">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="user_forms-signup">
+                            <h2 class="forms_title">Sign Up</h2>
+                            <form class="forms_form">
+                                <fieldset class="forms_fieldset">
+                                    <div class="forms_field">
+                                        <input type="text" placeholder="Full Name" class="forms_field-input" required />
+                                    </div>
+                                    <div class="forms_field">
+                                        <input type="email" placeholder="Email" class="forms_field-input" required />
+                                    </div>
+                                    <div class="forms_field">
+                                        <input type="password" placeholder="Password" class="forms_field-input"
+                                            required />
+                                    </div>
+                                </fieldset>
+                                <div class="forms_buttons">
+                                    <input type="submit" value="Sign up" class="forms_buttons-action">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

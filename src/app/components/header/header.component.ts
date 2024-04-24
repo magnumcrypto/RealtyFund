@@ -1,11 +1,12 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { LoginformComponent } from '../loginform/loginform.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass, RouterLink, RouterLinkActive],
+  imports: [NgClass, RouterLink, RouterLinkActive, LoginformComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -15,6 +16,8 @@ export class HeaderComponent implements OnInit {
   public styleThree: boolean = false;
   public styleFour: boolean = false;
   public styleFive: boolean = false;
+
+  @Output() showModal = new EventEmitter();
 
   constructor(private router: Router) { }
 
@@ -47,5 +50,9 @@ export class HeaderComponent implements OnInit {
     if (style === 5) {
       this.styleFive = true;
     }
+  }
+
+  public onButtonClick() {
+    this.showModal.emit();
   }
 }
