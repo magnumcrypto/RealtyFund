@@ -180,7 +180,7 @@ input::placeholder {
 
 .user_unregistered-text,
 .user_registered-text {
-    font-size: 0.83rem;
+    font-size: 0.9rem;
     line-height: 1.4em;
 }
 
@@ -400,4 +400,8 @@ input::placeholder {
 .user_options-container {
     display: inline-table;
     width: 100%;
+}
+
+.alerts {
+    font-size: 12px;
 }

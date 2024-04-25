@@ -10,8 +10,9 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
             <section class="user">
                 <div class="user_options-container">
                     <div class="user_options-text">
+                        <!-- Letrero para el registro -->
                         <div class="user_options-unregistered">
-                            <h2 class="user_unregistered-title">No tienes cuenta?</h2>
+                            <h2 class="user_unregistered-title">¿No tienes cuenta?</h2>
                             <p class="user_unregistered-text">Registrate para poder ser de los primeros en enterarte de
                                 todas las novedades.</p>
                             <div class="row"><button class="user_unregistered-signup" id="signup-button"
@@ -20,8 +21,9 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                             <div class="row"><button class="user_unregistered-signup" id="signout"
                                     data-bs-dismiss="modal">Cerrar</button></div>
                         </div>
+                        <!-- Letrero para el login -->
                         <div class="user_options-registered">
-                            <h2 class="user_registered-title">Tienes una cuenta?</h2>
+                            <h2 class="user_registered-title">¿Tienes una cuenta?</h2>
                             <p class="user_registered-text">Inicia sesión y empieza a invertir.</p>
                             <div class="row">
                                 <button class="user_registered-login" id="login-button"
@@ -33,19 +35,20 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                             </div>
                         </div>
                     </div>
-
                     <div class="user_options-forms" id="user_options-forms">
                         <div class="user_forms-login">
                             <h2 class="forms_title">Login</h2>
-                            <form class="forms_form">
+                            <!-- Formulario para LOGIN -->
+                            <form (ngSubmit)="onLoginSubmit()" [formGroup]="loginFormGroup" class="forms_form"
+                                method="post">
                                 <fieldset class="forms_fieldset">
                                     <div class="forms_field">
-                                        <input type="email" placeholder="Email" class="forms_field-input" required
-                                            autofocus />
+                                        <input formControlName="username" type="email" placeholder="Email"
+                                            class="forms_field-input" required autofocus />
                                     </div>
                                     <div class="forms_field">
-                                        <input type="password" placeholder="Password" class="forms_field-input"
-                                            required />
+                                        <input formControlName="password" type="password" placeholder="Contraseña"
+                                            class="forms_field-input" required />
                                     </div>
                                 </fieldset>
                                 <div class="forms_buttons">
@@ -55,17 +58,51 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                         </div>
                         <div class="user_forms-signup">
                             <h2 class="forms_title">Sign Up</h2>
-                            <form class="forms_form">
+                            <!-- Formulario para REGISTRO -->
+                            <form (ngSubmit)="onRegisterSubmit()" [formGroup]="registerFormGroup" class="forms_form">
                                 <fieldset class="forms_fieldset">
                                     <div class="forms_field">
-                                        <input type="text" placeholder="Full Name" class="forms_field-input" required />
+                                        <input
+                                            [ngStyle]="{ 'border': registerFormGroup.get('username')?.valid ? '1px solid #198754' : '' }"
+                                            type="email" placeholder="Email" class="forms_field-input" required
+                                            formControlName="username" />
+                                        @if (registerFormGroup.get('username')?.errors?.['pattern']) {
+                                        <p class="alerts" style="color: #dc3545;">Formato de email inválido</p>
+                                        }
                                     </div>
                                     <div class="forms_field">
-                                        <input type="email" placeholder="Email" class="forms_field-input" required />
+                                        <div style="position: relative; display: inline-block;">
+                                            <input
+                                                [ngStyle]="{ 'border': registerFormGroup.get('password')?.valid ? '1px solid #198754' : '' }"
+                                                type={{inputPassType}} placeholder="Contraseña"
+                                                class="forms_field-input" required formControlName="password" />
+                                            <img (mouseup)="hidePass(1)" (mousedown)="showPass(1)"
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVR4nO2ZTU8TURSGn0rSRBF2ghuKS/wDutBEI+hSVrrWhcofQBGXZjQxcaELsRD8Ga51h4DuNbFY2bkCwRSwSc1NTpOTk6l05vbOtMk8yU0nOZ33nPt17sdAQUFBQb9zDqgC20ATaElpAFEP9J+JVlu3Kb7eApO+4jeA30rclj1P/ZJodNLfBWZ8Wv5/wfeqByLTA3GVqKQRriqRGnANKBOeMjANbCn/S2mEtpWACz5rppX/ehoBPWGzaHlL2UzsxOhxmBctnxgGvgINlW3youETQyQ5uttUOQrcBlaADeAXcCDFPa8Dy8AtYCRQDKk4C7w+ZkGyxa0vr4BxcuaBLDTdBh63SN3LI/ATslexAa0B88AlYExSYVmeLwMPgU8x7y3JtiKz4FdMAF+BKwk0rgLfjMayaAfniXG8CpxU9tPyn8/AvpRNYFFsbU4B74yWey8oF4G/ymHVdP15WfY7jfkfwJT6f0lavm0/Ai6ECr4k6bHt7AMwZNJorYuJ+92k0SHgo7Kvh5oPs8qJGxYTxr5o0uRdSZPj8qy35gvm3QrwR9lvhqjAe+XAnaIsX5T9fox9TtndnLA8V3bnq+fsq52hbX1MC56JsY+ZHrRMqB2w70kvlkiGwdMOdt8KdOMjKHoIuRU66RDKncdmEt+RbDMSM4kf0YeMSopMmkb7iilzGLelZhayvmRYhtOGZJM9eV4QW2a8lJPQiyyd9jKGQ+l295sXhz4xDPyhvjXoFWgO+sXWz5yvFmfMOSIx+sy7JYJZXe5eN+vJmzRCk8fcOIT6wNEyZSft9TrS6rs5fuDYkVtqLyrShfVAn5iimE9MdfGZuuULCgoKyIR/sDpsPo82hUQAAAAASUVORK5CYII="
+                                                style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
+                                        </div>
+                                        @if (registerFormGroup.get('password')?.errors?.['minlength']) {
+                                        <p class="alerts" style="color: #dc3545;">Mínimo 8 carácteres</p>
+                                        }
+                                        @if (registerFormGroup.get('password')?.errors?.['pattern']) {
+                                        <p class="alerts" style="color: #dc3545;">Debe contener mínimo una mayuscula, un
+                                            número y un
+                                            carácter especial</p>
+                                        }
                                     </div>
                                     <div class="forms_field">
-                                        <input type="password" placeholder="Password" class="forms_field-input"
-                                            required />
+                                        <div style="position: relative; display: inline-block;">
+                                            <input
+                                                [ngStyle]="{ 'border': (registerFormGroup.get('confirmPassword')?.valid && isTheSame) ? '1px solid #198754' : '' }"
+                                                id="confirmPasswordField" type={{inputConfirmPassType}}
+                                                placeholder="Confirmar contraseña" class="forms_field-input" required
+                                                formControlName="confirmPassword" />
+                                            <img (mouseup)="hidePass(0)" (mousedown)="showPass(0)"
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVR4nO2ZTU8TURSGn0rSRBF2ghuKS/wDutBEI+hSVrrWhcofQBGXZjQxcaELsRD8Ga51h4DuNbFY2bkCwRSwSc1NTpOTk6l05vbOtMk8yU0nOZ33nPt17sdAQUFBQb9zDqgC20ATaElpAFEP9J+JVlu3Kb7eApO+4jeA30rclj1P/ZJodNLfBWZ8Wv5/wfeqByLTA3GVqKQRriqRGnANKBOeMjANbCn/S2mEtpWACz5rppX/ehoBPWGzaHlL2UzsxOhxmBctnxgGvgINlW3youETQyQ5uttUOQrcBlaADeAXcCDFPa8Dy8AtYCRQDKk4C7w+ZkGyxa0vr4BxcuaBLDTdBh63SN3LI/ATslexAa0B88AlYExSYVmeLwMPgU8x7y3JtiKz4FdMAF+BKwk0rgLfjMayaAfniXG8CpxU9tPyn8/AvpRNYFFsbU4B74yWey8oF4G/ymHVdP15WfY7jfkfwJT6f0lavm0/Ai6ECr4k6bHt7AMwZNJorYuJ+92k0SHgo7Kvh5oPs8qJGxYTxr5o0uRdSZPj8qy35gvm3QrwR9lvhqjAe+XAnaIsX5T9fox9TtndnLA8V3bnq+fsq52hbX1MC56JsY+ZHrRMqB2w70kvlkiGwdMOdt8KdOMjKHoIuRU66RDKncdmEt+RbDMSM4kf0YeMSopMmkb7iilzGLelZhayvmRYhtOGZJM9eV4QW2a8lJPQiyyd9jKGQ+l295sXhz4xDPyhvjXoFWgO+sXWz5yvFmfMOSIx+sy7JYJZXe5eN+vJmzRCk8fcOIT6wNEyZSft9TrS6rs5fuDYkVtqLyrShfVAn5iimE9MdfGZuuULCgoKyIR/sDpsPo82hUQAAAAASUVORK5CYII="
+                                                style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
+                                        </div>
+                                        @if (isTheSame === false) {
+                                        <p class="alerts" style="color: #dc3545;">Las contraseñas deben coincidir.</p>
+                                        }
                                     </div>
                                 </fieldset>
                                 <div class="forms_buttons">
