@@ -1,6 +1,8 @@
 import { NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostService } from '../../services/post.service';
+import { error, log } from 'console';
 
 @Component({
   selector: 'app-loginform',
@@ -13,6 +15,10 @@ export class LoginformComponent {
   public inputPassType: string = 'password';
   public inputConfirmPassType: string = 'password';
   public isTheSame: boolean | undefined;
+  public isRegistred: boolean = false;
+  public errorStatus: boolean = true;
+
+  constructor(public postService: PostService) { }
 
   onSignUp(): void {
     const userForms = document.getElementById('user_options-forms');
@@ -67,14 +73,25 @@ export class LoginformComponent {
   }
 
   onRegisterSubmit() {
-    console.log(this.registerFormGroup.value);
     const password = this.registerFormGroup.value.password;
     const confirmPassword = this.registerFormGroup.value.confirmPassword;
     if (password === confirmPassword) {
       this.isTheSame = true;
       if (this.registerFormGroup.valid) {
-        console.log(this.registerFormGroup.value)
         //Enviar datos al servidor
+        const uri: string = 'http://localhost:8000/register';
+        const dataUser = JSON.stringify(this.registerFormGroup.value);
+        this.postService.registerUser(uri, dataUser).subscribe({
+          next: (response) => {
+            if (response.status === 201) {
+              this.isRegistred = true;
+            }
+          },
+          error: (error) => {
+            console.log('Error: ', error.ok);
+            this.errorStatus = error.ok;
+          }
+        })
       }
     } else {
       //Mostrar en el formulario aviso
@@ -89,5 +106,10 @@ export class LoginformComponent {
   hidePass(numb: number) {
     if (numb === 1) { this.inputPassType = 'password'; }
     if (numb === 0) { this.inputConfirmPassType = 'password'; }
+  }
+  resetForm() {
+    this.registerFormGroup.reset();
+    this.loginFormGroup.reset();
+    this.errorStatus = true;
   }
 }

@@ -18,19 +18,30 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                             <div class="row"><button class="user_unregistered-signup" id="signup-button"
                                     (click)="onSignUp()">Sign
                                     up</button></div>
-                            <div class="row"><button class="user_unregistered-signup" id="signout"
+                            <div (click)="resetForm()" class="row"><button class="user_unregistered-signup" id="signout"
                                     data-bs-dismiss="modal">Cerrar</button></div>
                         </div>
                         <!-- Letrero para el login -->
                         <div class="user_options-registered">
+                            @if (isRegistred) {
+                            <h2 class="user_registered-title">¡Bienvenido!</h2>
+                            <p [ngStyle]="{'color': isRegistred ? '#198754': ''}" class="user_registered-text">Gracias
+                                por registrarte, ahora puedes iniciar sesión y empezar a invertir
+                                con nosotros.</p>
+                            }@else if(!errorStatus) {
+                            <h2 class="user_registered-title">¡Ups! Hubo un error</h2>
+                            <p [ngStyle]="{'color': !isRegistred ? '#dc3545': ''}" class="user_registered-text">Parece
+                                que este usuario ya está registrado.</p>
+                            }@else {
                             <h2 class="user_registered-title">¿Tienes una cuenta?</h2>
                             <p class="user_registered-text">Inicia sesión y empieza a invertir.</p>
+                            }
                             <div class="row">
                                 <button class="user_registered-login" id="login-button"
                                     (click)="onLogin()">Login</button>
                             </div>
                             <div class="row">
-                                <button class="user_unregistered-signup" id="signout2"
+                                <button (click)="resetForm()" class="user_unregistered-signup" id="signout2"
                                     data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
@@ -71,7 +82,7 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                                         }
                                     </div>
                                     <div class="forms_field">
-                                        <div style="position: relative; display: inline-block;">
+                                        <div style="position: relative;">
                                             <input
                                                 [ngStyle]="{ 'border': registerFormGroup.get('password')?.valid ? '1px solid #198754' : '' }"
                                                 type={{inputPassType}} placeholder="Contraseña"
@@ -90,7 +101,7 @@ I'm @hk95 on GitHub. Feel free to message me anytime.
                                         }
                                     </div>
                                     <div class="forms_field">
-                                        <div style="position: relative; display: inline-block;">
+                                        <div style="position: relative;">
                                             <input
                                                 [ngStyle]="{ 'border': (registerFormGroup.get('confirmPassword')?.valid && isTheSame) ? '1px solid #198754' : '' }"
                                                 id="confirmPasswordField" type={{inputConfirmPassType}}

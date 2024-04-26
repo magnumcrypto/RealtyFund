@@ -242,7 +242,7 @@ input::placeholder {
     width: 100%;
     border-bottom: 1px solid #ccc;
     padding: 6px 20px 6px 6px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: black;
@@ -262,7 +262,7 @@ input::placeholder {
 }
 
 .user_options-forms .forms_buttons-forgot {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     letter-spacing: 0.1rem;
     color: #ccc;
     text-decoration: underline;
@@ -278,7 +278,7 @@ input::placeholder {
     border-radius: 3px;
     padding: 10px 35px;
     font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 300;
     color: #fff;
     text-transform: uppercase;
@@ -393,7 +393,7 @@ input::placeholder {
 }
 
 .user_options-forms {
-    min-height: 420px;
+    min-height: 500px;
     min-width: 180px;
 }
 

@@ -16,4 +16,8 @@ export class PostService {
   public insertInvestor(uri: string, userData: any): Observable<any> {
     return this.http.post(uri, userData);
   }
+
+  public registerUser(uri: string, userData: any): Observable<any> {
+    return this.http.post(uri, userData);
+  }
 }
