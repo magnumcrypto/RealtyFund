@@ -405,3 +405,11 @@ input::placeholder {
 .alerts {
     font-size: 12px;
 }
+
+.hidden {
+    display: none;
+}
+
+.spinner-border {
+    margin-top: 30px;
+}
