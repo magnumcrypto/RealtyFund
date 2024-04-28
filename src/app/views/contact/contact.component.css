@@ -141,6 +141,15 @@ h1 {
     }
 }
 
+@media screen and (min-width: 1025px) and (min-height: 1200px) {
+
+    #f-1,
+    #f-2,
+    #f-3 {
+        min-height: 1200px;
+    }
+}
+
 ::selection {
     background-color: gray;
 }
