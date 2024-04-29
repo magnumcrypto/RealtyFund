@@ -16,6 +16,7 @@ export class LoginformComponent {
   public isTheSame: boolean | undefined;
   public isRegistred: boolean = false;
   public errorStatus: boolean = true;
+  public errorStatusLogin: boolean = true;
   public isHiddden: boolean = true;
   public isLogin: boolean = false;
 
@@ -27,6 +28,7 @@ export class LoginformComponent {
       userForms.classList.remove('bounceRight');
       userForms.classList.add('bounceLeft');
     }
+
   }
 
   onLogin(): void {
@@ -82,7 +84,7 @@ export class LoginformComponent {
         },
         error: (error) => {
           console.log('Error: ', error.ok);
-          this.errorStatus = error.ok;
+          this.errorStatusLogin = error.ok;
           if (!error.ok) {
             this.isHiddden = true;
           }
@@ -140,5 +142,8 @@ export class LoginformComponent {
     this.registerFormGroup.reset();
     this.loginFormGroup.reset();
     this.errorStatus = true;
+    this.errorStatusLogin = true;
+    this.isLogin = false;
+    this.isRegistred = false;
   }
 }
