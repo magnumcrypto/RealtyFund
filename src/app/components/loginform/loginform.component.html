@@ -2,11 +2,11 @@
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <!-- STAR FORM FROM HERE -->
+            <!-- START FORM FROM HERE -->
             <section class="user">
                 <div class="user_options-container">
                     <div class="user_options-text">
-                        <!-- Letrero para el registro -->
+                        <!-- Label for registration -->
                         <div class="user_options-unregistered">
                             @if (isLogin) {
                             <h2 class="user_unregistered-title">¡Bienvenido!</h2>
@@ -18,7 +18,7 @@
                                 debe de crear una cuenta.</p>
                             }@else {
                             <h2 class="user_unregistered-title">¿No tienes cuenta?</h2>
-                            <p class="user_unregistered-text">Registrate para poder ser de los primeros en enterarte de
+                            <p class="user_unregistered-text">Regístrate para poder ser de los primeros en enterarte de
                                 todas las novedades.</p>
                             }
                             <div class="row"><button class="user_unregistered-signup" id="signup-button"
@@ -27,7 +27,7 @@
                             <div (click)="resetForm()" class="row"><button class="user_unregistered-signup" id="signout"
                                     data-bs-dismiss="modal">Cerrar</button></div>
                         </div>
-                        <!-- Letrero para el login -->
+                        <!-- Label for login -->
                         <div class="user_options-registered">
                             @if (isRegistred) {
                             <h2 class="user_registered-title">¡Bienvenido!</h2>
@@ -55,7 +55,7 @@
                     <div class="user_options-forms" id="user_options-forms">
                         <div class="user_forms-login">
                             <h2 class="forms_title">Login</h2>
-                            <!-- Formulario para LOGIN -->
+                            <!-- Form for LOGIN -->
                             <form (ngSubmit)="onLoginSubmit()" [formGroup]="loginFormGroup" class="forms_form"
                                 method="post">
                                 <fieldset class="forms_fieldset">
@@ -74,9 +74,9 @@
                                     </div>
                                 </fieldset>
                                 <div class="forms_buttons">
-                                    <input [ngClass]="{'hidden': !isHiddden}" type="submit" value="Log In"
+                                    <input [ngClass]="{'hidden': !isHidden}" type="submit" value="Log In"
                                         class="forms_buttons-action">
-                                    <div [ngClass]="{'hidden': isHiddden}" style="color: #0c74ba;"
+                                    <div [ngClass]="{'hidden': isHidden}" style="color: #0c74ba;"
                                         class="spinner-border one" role="status">
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="user_forms-signup">
                             <h2 class="forms_title">Sign Up</h2>
-                            <!-- Formulario para REGISTRO -->
+                            <!-- Form for REGISTRATION -->
                             <form (ngSubmit)="onRegisterSubmit()" [formGroup]="registerFormGroup" class="forms_form">
                                 <fieldset class="forms_fieldset">
                                     <div class="forms_field">
@@ -102,10 +102,10 @@
                                             type="text" placeholder="Username" class="forms_field-input" required
                                             formControlName="nickname" />
                                         @if (registerFormGroup.get('nickname')?.errors?.['minlength']) {
-                                        <p class="alerts" style="color: #dc3545;">Mínimo 5 carácteres</p>
+                                        <p class="alerts" style="color: #dc3545;">Mínimo 5 caracteres</p>
                                         }
                                         @if (registerFormGroup.get('nickname')?.errors?.['maxlength']) {
-                                        <p class="alerts" style="color: #dc3545;">Máximo 15 carácteres</p>
+                                        <p class="alerts" style="color: #dc3545;">Máximo 15 caracteres</p>
                                         }
                                     </div>
                                     <div class="forms_field">
@@ -119,10 +119,10 @@
                                                 style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
                                         </div>
                                         @if (registerFormGroup.get('password')?.errors?.['minlength']) {
-                                        <p class="alerts" style="color: #dc3545;">Mínimo 8 carácteres</p>
+                                        <p class="alerts" style="color: #dc3545;">Mínimo 8 caracteres</p>
                                         }
                                         @if (registerFormGroup.get('password')?.errors?.['pattern']) {
-                                        <p class="alerts" style="color: #dc3545;">Debe contener mínimo una mayuscula, un
+                                        <p class="alerts" style="color: #dc3545;">Debe contener mínimo una mayúscula, un
                                             número y un
                                             carácter especial</p>
                                         }
@@ -144,10 +144,10 @@
                                     </div>
                                 </fieldset>
                                 <div class="forms_buttons">
-                                    <input [ngClass]="{'hidden': !isHiddden}" type="submit" value="Sign up"
+                                    <input [ngClass]="{'hidden': !isHidden}" type="submit" value="Sign up"
                                         class="forms_buttons-action">
-                                    <div [ngClass]="{'hidden': isHiddden}" style="color: #0c74ba;"
-                                        class="spinner-border" role="status">
+                                    <div [ngClass]="{'hidden': isHidden}" style="color: #0c74ba;" class="spinner-border"
+                                        role="status">
                                     </div>
                                 </div>
                             </form>

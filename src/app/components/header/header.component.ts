@@ -2,11 +2,12 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { LoginformComponent } from '../loginform/loginform.component';
+import { LogoutformComponent } from '../logoutform/logoutform.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass, RouterLink, RouterLinkActive, LoginformComponent],
+  imports: [NgClass, RouterLink, RouterLinkActive, LoginformComponent, LogoutformComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -21,16 +22,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private renderer: Renderer2) { }
 
-  loginSucces(response: any) {
+  loginSucces(response: boolean) {
     this.responseData = response;
   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd && typeof window !== 'undefined') {
         window.scrollTo(0, 0);
       }
-    })
+    });
   }
 
   public activeStyle(style: number): void {

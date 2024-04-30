@@ -17,7 +17,7 @@ export class LoginformComponent {
   public isRegistred: boolean = false;
   public errorStatus: boolean = true;
   public errorStatusLogin: boolean = true;
-  public isHiddden: boolean = true;
+  public isHidden: boolean = true;
   public isLogin: boolean = false;
 
   @Output() responseData = new EventEmitter<boolean>();
@@ -77,7 +77,7 @@ export class LoginformComponent {
   })
 
   onLoginSubmit() {
-    this.isHiddden = false;
+    this.isHidden = false;
     if (this.loginFormGroup.valid) {
       console.log(this.loginFormGroup.value)
       //Enviar datos al servidor´
@@ -87,7 +87,7 @@ export class LoginformComponent {
         next: (response) => {
           if (response.status === 200) {
             //console.log(response);
-            this.isHiddden = true;
+            this.isHidden = true;
             this.isLogin = true;
             this.responseData.emit(true);
             this.resetForm();
@@ -100,17 +100,17 @@ export class LoginformComponent {
           console.log('Error: ', error.ok);
           this.errorStatusLogin = error.ok;
           if (!error.ok) {
-            this.isHiddden = true;
+            this.isHidden = true;
           }
         }
       })
     } else {
-      this.isHiddden = true;
+      this.isHidden = true;
     }
   }
 
   onRegisterSubmit() {
-    this.isHiddden = false;
+    this.isHidden = false;
     const password = this.registerFormGroup.value.password;
     const confirmPassword = this.registerFormGroup.value.confirmPassword;
     if (password === confirmPassword) {
@@ -123,24 +123,24 @@ export class LoginformComponent {
           next: (response) => {
             if (response.status === 201) {
               this.isRegistred = true;
-              this.isHiddden = true;
+              this.isHidden = true;
             }
           },
           error: (error) => {
             console.log('Error: ', error.ok);
             this.errorStatus = error.ok;
             if (!error.ok) {
-              this.isHiddden = true;
+              this.isHidden = true;
             }
           }
         })
       } else {
-        this.isHiddden = true;
+        this.isHidden = true;
       }
     } else {
       //Mostrar en el formulario aviso
       this.isTheSame = false;
-      this.isHiddden = true;
+      this.isHidden = true;
     }
   }
 
