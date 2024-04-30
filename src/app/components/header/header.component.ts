@@ -16,10 +16,14 @@ export class HeaderComponent implements OnInit {
   public styleThree: boolean = false;
   public styleFour: boolean = false;
   public styleFive: boolean = false;
-
+  public responseData: any | undefined;
   @Output() showModal = new EventEmitter();
 
   constructor(private router: Router, private renderer: Renderer2) { }
+
+  loginSucces(response: any) {
+    this.responseData = response;
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {

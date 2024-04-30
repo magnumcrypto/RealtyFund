@@ -97,6 +97,18 @@
                                         }
                                     </div>
                                     <div class="forms_field">
+                                        <input
+                                            [ngStyle]="{ 'border': registerFormGroup.get('nickname')?.valid ? '1px solid #198754' : '' }"
+                                            type="text" placeholder="Username" class="forms_field-input" required
+                                            formControlName="nickname" />
+                                        @if (registerFormGroup.get('nickname')?.errors?.['minlength']) {
+                                        <p class="alerts" style="color: #dc3545;">Mínimo 5 carácteres</p>
+                                        }
+                                        @if (registerFormGroup.get('nickname')?.errors?.['maxlength']) {
+                                        <p class="alerts" style="color: #dc3545;">Máximo 15 carácteres</p>
+                                        }
+                                    </div>
+                                    <div class="forms_field">
                                         <div style="position: relative;">
                                             <input
                                                 [ngStyle]="{ 'border': registerFormGroup.get('password')?.valid ? '1px solid #198754' : '' }"

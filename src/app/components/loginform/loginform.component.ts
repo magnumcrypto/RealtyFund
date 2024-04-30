@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 
@@ -19,6 +19,8 @@ export class LoginformComponent {
   public errorStatusLogin: boolean = true;
   public isHiddden: boolean = true;
   public isLogin: boolean = false;
+
+  @Output() responseData = new EventEmitter<any>();
 
   constructor(public postService: PostService) { }
 
@@ -52,6 +54,13 @@ export class LoginformComponent {
         Validators.email
       ]
     ),
+    nickname: new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(15)
+      ]
+    ),
     password: new FormControl('',
       [
         Validators.required,
@@ -77,9 +86,14 @@ export class LoginformComponent {
       this.postService.loginUser(uri, userData).subscribe({
         next: (response) => {
           if (response.status === 200) {
-            console.log(response);
+            //console.log(response);
             this.isHiddden = true;
             this.isLogin = true;
+            this.responseData.emit(response);
+            this.resetForm();
+            const close = document.getElementById('signout');
+            close?.click();
+
           }
         },
         error: (error) => {
@@ -104,7 +118,7 @@ export class LoginformComponent {
       if (this.registerFormGroup.valid) {
         //Enviar datos al servidor
         const uri: string = 'http://localhost:8000/register';
-        const dataUser = JSON.stringify(this.registerFormGroup.value);
+        const dataUser = this.registerFormGroup.value;
         this.postService.registerUser(uri, dataUser).subscribe({
           next: (response) => {
             if (response.status === 201) {
