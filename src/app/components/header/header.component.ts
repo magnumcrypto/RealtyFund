@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   public styleThree: boolean = false;
   public styleFour: boolean = false;
   public styleFive: boolean = false;
-  public responseData: any | undefined;
+  public responseData: boolean = false;
   @Output() showModal = new EventEmitter();
 
   constructor(private router: Router, private renderer: Renderer2) { }

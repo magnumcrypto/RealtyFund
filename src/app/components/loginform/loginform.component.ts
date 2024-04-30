@@ -20,7 +20,7 @@ export class LoginformComponent {
   public isHiddden: boolean = true;
   public isLogin: boolean = false;
 
-  @Output() responseData = new EventEmitter<any>();
+  @Output() responseData = new EventEmitter<boolean>();
 
   constructor(public postService: PostService) { }
 
@@ -89,7 +89,7 @@ export class LoginformComponent {
             //console.log(response);
             this.isHiddden = true;
             this.isLogin = true;
-            this.responseData.emit(response);
+            this.responseData.emit(true);
             this.resetForm();
             const close = document.getElementById('signout');
             close?.click();
