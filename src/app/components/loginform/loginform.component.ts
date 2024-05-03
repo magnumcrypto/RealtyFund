@@ -85,8 +85,16 @@ export class LoginformComponent {
       const userData = this.loginFormGroup.value;
       this.postService.loginUser(uri, userData).subscribe({
         next: (response) => {
+          console.log(response);
           if (response.status === 200) {
-            //console.log(response);
+            //introducimos los datos el usuario en el localSotrage
+            const user =
+            {
+              nickname: response.nickname,
+              email: response.email,
+              token: response.token
+            };
+            localStorage.setItem('user', JSON.stringify(user));
             this.isHidden = true;
             this.isLogin = true;
             this.responseData.emit(true);

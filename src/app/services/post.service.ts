@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -23,5 +23,13 @@ export class PostService {
 
   public loginUser(uri: string, userData: any): Observable<any> {
     return this.http.post(uri, userData);
+  }
+
+  public logoutUser(uri: string): Observable<any> {
+    return this.http.get(uri);
+  }
+
+  public deleteUser(uri: string, userData: any): Observable<any> {
+    return this.http.delete(uri, userData);
   }
 }

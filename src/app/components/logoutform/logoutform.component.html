@@ -43,9 +43,13 @@
                                     <div class="forms_field">
                                         <p class="forms_field-input">¡Hasta pronto!</p>
                                     </div>
+                                    <div class="forms_field">
+                                        <p class="forms_field-input">{{user.nickname}}</p>
+                                    </div>
                                 </fieldset>
                                 <div class="forms_buttons">
-                                    <input type="submit" value="Cerrar Sesión" class="forms_buttons-action">
+                                    <input (click)="onSubmitLogOut($event)" type="submit" value="Cerrar Sesión"
+                                        class="forms_buttons-action">
                                 </div>
                             </form>
                         </div>

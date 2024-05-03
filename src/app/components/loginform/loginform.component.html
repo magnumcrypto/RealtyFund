@@ -14,8 +14,8 @@
                                 iniciar sesión, ahora puedes empezar a invertir con nosotros.</p>
                             }@else if(!errorStatusLogin) {
                             <h2 class="user_registered-title">No existe el usuario</h2>
-                            <p [ngStyle]="{'color': !isRegistred ? '#dc3545': ''}" class="user_registered-text">Primero
-                                debe de crear una cuenta.</p>
+                            <p [ngStyle]="{'color': !isRegistred ? '#dc3545': ''}" class="user_registered-text">
+                                Contraseña o usuario inválidos.</p>
                             }@else {
                             <h2 class="user_unregistered-title">¿No tienes cuenta?</h2>
                             <p class="user_unregistered-text">Regístrate para poder ser de los primeros en enterarte de
