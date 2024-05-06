@@ -25,6 +25,9 @@ export class HeaderComponent implements OnInit {
   loginSucces(response: boolean) {
     this.responseData = response;
   }
+  logoutSucces(response: boolean) {
+    this.responseData = response;
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {

@@ -29,7 +29,8 @@ export class PostService {
     return this.http.get(uri);
   }
 
-  public deleteUser(uri: string, userData: any): Observable<any> {
-    return this.http.delete(uri, userData);
+  public deleteUser(uri: string, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.delete(uri, { headers: headers });
   }
 }

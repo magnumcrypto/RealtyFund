@@ -2,6 +2,7 @@ import { NgClass, NgStyle } from '@angular/common';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
+import { UserLoginService } from '../../services/user-login.service';
 
 @Component({
   selector: 'app-loginform',
@@ -22,7 +23,7 @@ export class LoginformComponent {
 
   @Output() responseData = new EventEmitter<boolean>();
 
-  constructor(public postService: PostService) { }
+  constructor(public postService: PostService, private userService: UserLoginService) { }
 
   onSignUp(): void {
     const userForms = document.getElementById('user_options-forms');
@@ -79,14 +80,13 @@ export class LoginformComponent {
   onLoginSubmit() {
     this.isHidden = false;
     if (this.loginFormGroup.valid) {
-      console.log(this.loginFormGroup.value)
-      //Enviar datos al servidor´
+      //Enviar datos al servidor
       const uri: string = 'http://localhost:8000/login';
       const userData = this.loginFormGroup.value;
       this.postService.loginUser(uri, userData).subscribe({
         next: (response) => {
-          console.log(response);
           if (response.status === 200) {
+            console.log(response);
             //introducimos los datos el usuario en el localSotrage
             const user =
             {
@@ -94,7 +94,7 @@ export class LoginformComponent {
               email: response.email,
               token: response.token
             };
-            localStorage.setItem('user', JSON.stringify(user));
+            this.userService.setUser(user);
             this.isHidden = true;
             this.isLogin = true;
             this.responseData.emit(true);
@@ -132,6 +132,9 @@ export class LoginformComponent {
             if (response.status === 201) {
               this.isRegistred = true;
               this.isHidden = true;
+              this.resetForm();
+              const close = document.getElementById('signout');
+              close?.click();
             }
           },
           error: (error) => {

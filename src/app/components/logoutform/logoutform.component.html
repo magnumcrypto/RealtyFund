@@ -43,12 +43,14 @@
                                     <div class="forms_field">
                                         <p class="forms_field-input">¡Hasta pronto!</p>
                                     </div>
+                                    @if (user !== null) {
                                     <div class="forms_field">
                                         <p class="forms_field-input">{{user.nickname}}</p>
                                     </div>
+                                    }
                                 </fieldset>
                                 <div class="forms_buttons">
-                                    <input (click)="onSubmitLogOut($event)" type="submit" value="Cerrar Sesión"
+                                    <input (click)="onSubmitLogOut()" type="submit" value="Cerrar Sesión"
                                         class="forms_buttons-action">
                                 </div>
                             </form>
@@ -57,7 +59,7 @@
                             <h2 class="forms_title">Eliminar</h2>
                             <!-- Formulario para Eliminar Cuenta -->
                             <form class="forms_form">
-                                <fieldset class="forms_fieldset">
+                                <!--                                 <fieldset class="forms_fieldset">
                                     <div class="forms_field">
                                         <input type="email" placeholder="Correo Electrónico" class="forms_field-input"
                                             required formControlName="username" />
@@ -78,9 +80,10 @@
                                                 style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
                                         </div>
                                     </div>
-                                </fieldset>
+                                </fieldset> -->
                                 <div class="forms_buttons">
-                                    <input type="submit" value="Eliminar" class="forms_buttons-action">
+                                    <input (click)="onSubmitDelete($event)" type="submit" value="Eliminar"
+                                        class="forms_buttons-action">
                                 </div>
                             </form>
                         </div>
