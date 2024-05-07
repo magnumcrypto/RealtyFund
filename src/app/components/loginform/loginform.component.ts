@@ -86,7 +86,7 @@ export class LoginformComponent {
       this.postService.loginUser(uri, userData).subscribe({
         next: (response) => {
           if (response.status === 200) {
-            console.log(response);
+            //console.log(response);
             //introducimos los datos el usuario en el localSotrage
             const user =
             {

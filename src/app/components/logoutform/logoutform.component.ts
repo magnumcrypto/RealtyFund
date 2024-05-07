@@ -50,7 +50,7 @@ export class LogoutformComponent {
 
   onSubmitDelete(event: any) {
     const uri = 'http://localhost:8000/delete';
-    console.log(this.user);
+    //console.log(this.user);
     this.postService.deleteUser(uri, this.user).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
