@@ -56,31 +56,21 @@
                             </form>
                         </div>
                         <div class="user_forms-signup">
-                            <h2 class="forms_title">Eliminar</h2>
+                            <h2 class="forms_title">Eliminar cuenta</h2>
                             <!-- Formulario para Eliminar Cuenta -->
                             <form class="forms_form">
-                                <!--                                 <fieldset class="forms_fieldset">
+                                <fieldset class="forms_fieldset">
                                     <div class="forms_field">
-                                        <input type="email" placeholder="Correo Electrónico" class="forms_field-input"
-                                            required formControlName="username" />
+                                        <input type="email" placeholder={{user.username}} class="forms_field-input"
+                                            required formControlName="username" readonly />
                                     </div>
+                                </fieldset>
+                                <fieldset class="forms_fieldset">
                                     <div class="forms_field">
-                                        <div style="position: relative;">
-                                            <input type="password" placeholder="Contraseña" class="forms_field-input"
-                                                required formControlName="password" />
-                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVR4nO2ZTU8TURSGn0rSRBF2ghuKS/wDutBEI+hSVrrWhcofQBGXZjQxcaELsRD8Ga51h4DuNbFY2bkCwRSwSc1NTpOTk6l05vbOtMk8yU0nOZ33nPt17sdAQUFBQb9zDqgC20ATaElpAFEP9J+JVlu3Kb7eApO+4jeA30rclj1P/ZJodNLfBWZ8Wv5/wfeqByLTA3GVqKQRriqRGnANKBOeMjANbCn/S2mEtpWACz5rppX/ehoBPWGzaHlL2UzsxOhxmBctnxgGvgINlW3youETQyQ5uttUOQrcBlaADeAXcCDFPa8Dy8AtYCRQDKk4C7w+ZkGyxa0vr4BxcuaBLDTdBh63SN3LI/ATslexAa0B88AlYExSYVmeLwMPgU8x7y3JtiKz4FdMAF+BKwk0rgLfjMayaAfniXG8CpxU9tPyn8/AvpRNYFFsbU4B74yWey8oF4G/ymHVdP15WfY7jfkfwJT6f0lavm0/Ai6ECr4k6bHt7AMwZNJorYuJ+92k0SHgo7Kvh5oPs8qJGxYTxr5o0uRdSZPj8qy35gvm3QrwR9lvhqjAe+XAnaIsX5T9fox9TtndnLA8V3bnq+fsq52hbX1MC56JsY+ZHrRMqB2w70kvlkiGwdMOdt8KdOMjKHoIuRU66RDKncdmEt+RbDMSM4kf0YeMSopMmkb7iilzGLelZhayvmRYhtOGZJM9eV4QW2a8lJPQiyyd9jKGQ+l295sXhz4xDPyhvjXoFWgO+sXWz5yvFmfMOSIx+sy7JYJZXe5eN+vJmzRCk8fcOIT6wNEyZSft9TrS6rs5fuDYkVtqLyrShfVAn5iimE9MdfGZuuULCgoKyIR/sDpsPo82hUQAAAAASUVORK5CYII="
-                                                style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
-                                        </div>
+                                        <input type="text" placeholder={{user.nickname}} class="forms_field-input"
+                                            required formControlName="nickname" readonly />
                                     </div>
-                                    <div class="forms_field">
-                                        <div style="position: relative;">
-                                            <input type="password" placeholder="Confirmar Contraseña"
-                                                class="forms_field-input" required formControlName="confirmPassword" />
-                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVR4nO2ZTU8TURSGn0rSRBF2ghuKS/wDutBEI+hSVrrWhcofQBGXZjQxcaELsRD8Ga51h4DuNbFY2bkCwRSwSc1NTpOTk6l05vbOtMk8yU0nOZ33nPt17sdAQUFBQb9zDqgC20ATaElpAFEP9J+JVlu3Kb7eApO+4jeA30rclj1P/ZJodNLfBWZ8Wv5/wfeqByLTA3GVqKQRriqRGnANKBOeMjANbCn/S2mEtpWACz5rppX/ehoBPWGzaHlL2UzsxOhxmBctnxgGvgINlW3youETQyQ5uttUOQrcBlaADeAXcCDFPa8Dy8AtYCRQDKk4C7w+ZkGyxa0vr4BxcuaBLDTdBh63SN3LI/ATslexAa0B88AlYExSYVmeLwMPgU8x7y3JtiKz4FdMAF+BKwk0rgLfjMayaAfniXG8CpxU9tPyn8/AvpRNYFFsbU4B74yWey8oF4G/ymHVdP15WfY7jfkfwJT6f0lavm0/Ai6ECr4k6bHt7AMwZNJorYuJ+92k0SHgo7Kvh5oPs8qJGxYTxr5o0uRdSZPj8qy35gvm3QrwR9lvhqjAe+XAnaIsX5T9fox9TtndnLA8V3bnq+fsq52hbX1MC56JsY+ZHrRMqB2w70kvlkiGwdMOdt8KdOMjKHoIuRU66RDKncdmEt+RbDMSM4kf0YeMSopMmkb7iilzGLelZhayvmRYhtOGZJM9eV4QW2a8lJPQiyyd9jKGQ+l295sXhz4xDPyhvjXoFWgO+sXWz5yvFmfMOSIx+sy7JYJZXe5eN+vJmzRCk8fcOIT6wNEyZSft9TrS6rs5fuDYkVtqLyrShfVAn5iimE9MdfGZuuULCgoKyIR/sDpsPo82hUQAAAAASUVORK5CYII="
-                                                style="width: 20px; position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer;" />
-                                        </div>
-                                    </div>
-                                </fieldset> -->
+                                </fieldset>
                                 <div class="forms_buttons">
                                     <input (click)="onSubmitDelete($event)" type="submit" value="Eliminar"
                                         class="forms_buttons-action">

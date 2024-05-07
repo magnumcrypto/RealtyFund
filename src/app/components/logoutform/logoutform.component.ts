@@ -49,13 +49,13 @@ export class LogoutformComponent {
   }
 
   onSubmitDelete(event: any) {
-    event.preventDefault();
     const uri = 'http://localhost:8000/delete';
-    const token = this.user.token;
-    this.postService.deleteUser(uri, token).subscribe({
+    console.log(this.user);
+    this.postService.deleteUser(uri, this.user).subscribe({
       next: (response: any) => {
         if (response.status === 200) {
-          console.log(response);
+          localStorage.removeItem('user');
+          this.responseData.emit(false);
         }
       },
       error: (error: any) => {

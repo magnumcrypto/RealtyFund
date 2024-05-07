@@ -91,7 +91,7 @@ export class LoginformComponent {
             const user =
             {
               nickname: response.nickname,
-              email: response.email,
+              username: response.email,
               token: response.token
             };
             this.userService.setUser(user);
