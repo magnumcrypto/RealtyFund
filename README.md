@@ -26,7 +26,7 @@ Exploración de Propiedades: Los usuarios pueden explorar diferentes propiedades
 Inversiones: Funcionalidad para que los usuarios inviertan en propiedades mediante tokens.
 
 ![alt text](image.png)
-<video controls src="src\assets\img\20240516-0636-45.9714185.mp4" title="Title"></video>
+![alt text](image-1.png)
 
 ***
 
