@@ -1,27 +1,40 @@
-# RealtyFund
+# RealtyFund ![FINALIZADO](https://img.shields.io/badge/STATUS-FINALIZADO-green)
+***
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+<img src="src\assets\img\logo_rectangulo_slogan.png" style="height: 100%; width:100%;"/>
 
-## Development server
+# Descripción
+RealtyFund es una aplicación web dedicada a la inversión en bienes raíces tokenizados. Este proyecto también sirve como un Proyecto Final de Grado (PFG).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El proyecto consta principalmente de 6 páginas más un modal. Se han desarrollado las API RESTful necesarias para cada solicitud al servidor, asegurando respuestas adecuadas y eficientes.
 
-## Code scaffolding
+Para el backend, se ha utilizado Symfony v6.2, mientras que para el frontend se ha empleado Angular 17.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Built with:
+![Symfony](https://img.shields.io/badge/symfony_v6.2-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
+![Angular](https://img.shields.io/badge/angular_v17.2-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-## Build
+***
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Funcionalidades Principales
+Registro y Autenticación: Permite a los usuarios crear cuentas, iniciar sesión y gestionar su perfil.
 
-## Running unit tests
+Exploración de Propiedades: Los usuarios pueden explorar diferentes propiedades tanto de alquiler y venta y también realizar filtrados sobre los inmuebles.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Inversiones: Funcionalidad para que los usuarios inviertan en propiedades mediante tokens.
 
-## Running end-to-end tests
+![alt text](image.png)
+<video controls src="20240516-0636-45.9714185.mp4" title="Title"></video>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+***
 
-## Further help
+# Contacto
+[![GitHub](https://img.shields.io/badge/GITHUB-magnumcrypto-black)](https://github.com/magnumcrypto)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[![RealtyFund-API-REST](https://img.shields.io/badge/REPOSITORIO-RealtyFund_API_REST-black)](https://github.com/magnumcrypto/RealtyFund-API-REST)
+
+[![Correo Electrónico](https://img.shields.io/badge/EMAIL-jorge_vankov@hotmail.com-red)](jorge_vankov@hotmail.com)
+
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-Georgi%20Nedyalkov%20Vankov-blue)](www.linkedin.com/in/georgivankov)
