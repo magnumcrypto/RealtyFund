@@ -4,11 +4,15 @@
 <img src="src\assets\img\logo_rectangulo_slogan.png" style="height: 100%; width:100%;"/>
 
 # Descripción
-RealtyFund es una aplicación web dedicada a la inversión en bienes raíces tokenizados. Este proyecto también sirve como un Proyecto Final de Grado (PFG).
+**RealtyFund** es una aplicación web dedicada a la inversión en bienes raíces tokenizados. Este proyecto también sirve como un *Proyecto Final de Grado (PFG)*.
 
-El proyecto consta principalmente de 6 páginas más un modal. Se han desarrollado las API RESTful necesarias para cada solicitud al servidor, asegurando respuestas adecuadas y eficientes.
+La aplicación consta principalmente de 6 páginas y un modal. Se han desarrollado las API RestFull necesarias para gestionar las solicitudes al servidor, garantizando respuestas adecuadas y eficientes.
 
-Para el backend, se ha utilizado Symfony v6.2, mientras que para el frontend se ha empleado Angular 17.
+En el backend se ha utilizado PHP como lenguaje de programación y el framework Symfony v6.2.
+
+En el frontend se ha utilizado TypeScript como lenguaje de programación y el framework Angular v17.2.
+
+La base de datos utilizada es MySQL.
 
 ### Built with:
 ![Symfony](https://img.shields.io/badge/symfony_v6.2-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
@@ -24,9 +28,10 @@ Para instalar la aplicación, sigue los siguientes pasos:
 2. Abre una terminal y navega hasta la carpeta del proyecto.
 3. Ejecuta el comando `composer install` para instalar las dependencias de Symfony.
 4. Ejecuta el comando `npm install` para instalar las dependencias de Angular.
-5. Crea una base de datos en MySQL con el nombre `taskmanagerdb` o bien modifica el archivo `.env` para que coincida con tu base de datos.
+5. Crea una base de datos en MySQL con el nombre `realtyfund` o bien modifica el archivo `.env` para que coincida con tu base de datos.
 6. Ejecuta el comando `php bin/console doctrine:migrations:migrate` para crear las tablas en la base de datos.
-7. Ejecuta el comando `aymfony server:start` para iniciar el servidor de Symfony.
+6. Ejecuta el comando `php bin/console doctrine:fixtures:load` para cargar los datos de prueba en la base de datos.
+7. Ejecuta el comando `symfony server:start` para iniciar el servidor de Symfony.
 8. Abre otra terminal y navega hasta la carpeta del proyecto frontend.
 9. Ejecuta el comando `ng serve` para iniciar el servidor de Angular.
 10. Abre un navegador y navega a `http://localhost:4200/` para ver la aplicación.
