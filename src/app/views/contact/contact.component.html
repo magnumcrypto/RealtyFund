@@ -31,14 +31,18 @@
     <div class="container">
         <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" class="form" method="post">
             <p class="title">INVIERTE CON NOSTROS</p>
-            <input formControlName="nombre" placeholder="Nombre" class="username input" type="text" required>
-            <input formControlName="apellidos" placeholder="Apellidos" class="surname input" type="text" required>
-            <input formControlName="direccion" placeholder="Dirección" class="direccion input" type="text" required>
-            <input formControlName="email" placeholder="Email" class="password input" type="email" required>
-            <input formControlName="telefono" placeholder="Teléfono" class="telefono input" type="text" minlength="9"
-                maxlength="11" required>
-            <input formControlName="capital" placeholder="Capital a invertir" class="capital input" type="number"
-                min="0" required>
+            <input (blur)="onEmailBlur()" formControlName="email" placeholder="Email" class="password input"
+                type="email" required>
+            <input value={{userData.nombre}} formControlName="nombre" placeholder="Nombre" class="username input"
+                type="text" required>
+            <input value={{userData.apellidos}} formControlName="apellidos" placeholder="Apellidos"
+                class="surname input" type="text" required>
+            <input value={{userData.direccion}} formControlName="direccion" placeholder="Dirección"
+                class="direccion input" type="text" required>
+            <input value={{userData.tel}} formControlName="telefono" placeholder="Teléfono" class="telefono input"
+                type="text" minlength="9" maxlength="11" required>
+            <input appNumberFormatter formControlName="capital" placeholder="Capital a invertir" class="capital input"
+                type="text" min="0" required>
             <select formControlName="property" class="select input" required>
                 <option value="">Selecciona un inmueble</option>
                 @for (item of salesProperty; track salesProperty) {

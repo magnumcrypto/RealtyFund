@@ -4,11 +4,14 @@ import { Property } from '../../interfaces/saleproperty';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 import { NgClass } from '@angular/common';
+import { NumberFormatterDirective } from '../../number-formatter.directive';
+import { GetUserDataService } from '../../services/get-user-data.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, NumberFormatterDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -17,8 +20,13 @@ export class ContactComponent implements OnInit {
   public isSucces: boolean = true;
   public nonSuccess: boolean = true;
   public textForNonSuccess: string = '';
+  public userData = { nombre: '', apellidos: '', direccion: '', tel: '' };
 
-  constructor(public salesService: SalesService, public postService: PostService) { }
+  constructor(
+    public salesService: SalesService,
+    public postService: PostService,
+    public getUserData: GetUserDataService
+  ) { }
 
   reactiveForm = new FormGroup({
     nombre: new FormControl('',
@@ -50,8 +58,7 @@ export class ContactComponent implements OnInit {
       ]),
     capital: new FormControl('',
       [
-        Validators.required,
-        Validators.min(0)
+        Validators.required
       ]),
     property: new FormControl('', [Validators.required])
   })
@@ -70,12 +77,12 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     if (this.reactiveForm.valid) {
       const formValue = this.reactiveForm.value;
-      console.log(formValue);
+      //console.log(formValue);
       const userData = JSON.stringify(formValue);
       const uri = 'http://127.0.0.1:8000/users';
       this.postService.insertInvestor(uri, userData).subscribe({
         next: (response) => {
-          console.log(response);
+          //console.log(response);
           this.isSucces = false;
           this.nonSuccess = true;
         },
@@ -91,8 +98,29 @@ export class ContactComponent implements OnInit {
       this.nonSuccess = false;
     }
   }
+
   ngOnDestroy() {
     this.isSucces = true;
     this.nonSuccess = true;
+  }
+
+  onEmailBlur() {
+    const email = { email: this.reactiveForm.value.email };
+    this.getUserData.getUserData(email).subscribe({
+      next: (response) => {
+        if (response.ok) {
+          this.userData = { ...response.data };
+          this.reactiveForm.patchValue({
+            nombre: this.userData.nombre,
+            apellidos: this.userData.apellidos,
+            direccion: this.userData.direccion,
+            telefono: this.userData.tel
+          })
+        }
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
   }
 }
